@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="assets/favicon.png?v=1" />
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Virtual Assistant portfolio of Kaycee B. Manalo — social media support, content planning, Canva design, graphic design, and basic video editing." />
+  <title>Kaycee B. Manalo | Virtual Assistant Portfolio</title>
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem('kaycee-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (_) { document.documentElement.dataset.theme = 'light'; }
+    try { if (!sessionStorage.getItem('kaycee-intro-seen')) document.documentElement.classList.add('show-intro'); } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#171717',
+            cream: '#f7f3ed',
+            rose: '#9f4d52',
+            blush: '#ead9d7',
+            sand: '#d6c6b8'
+          },
+          fontFamily: {
+            display: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 18px 50px rgba(23,23,23,.10)'
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+      body { @apply bg-cream text-ink antialiased; }
+      ::selection { @apply bg-rose text-white; }
+    }
+    @layer components {
+      .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.24em] text-rose; }
+      .section-title { @apply mt-3 font-display text-4xl leading-tight md:text-5xl; }
+      .nav-link { @apply text-sm text-neutral-600 transition hover:text-rose; }
+      .btn-primary { @apply inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-rose; }
+      .btn-ghost { @apply inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-semibold transition hover:border-ink hover:bg-white; }
+      .card { @apply rounded-[1.75rem] border border-black/5 bg-white shadow-soft; }
+      .filter-btn { @apply rounded-full border border-neutral-300 px-4 py-2 text-sm transition hover:border-ink hover:bg-white; }
+      .filter-btn.active { @apply border-ink bg-ink text-white; }
+      .work-card { @apply overflow-hidden rounded-[1.5rem] border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft; }
+    }
+  </style>
+</head>
+<body>
+  <div id="splash" aria-hidden="true"><div class="splash-content"><span class="splash-kicker">THE PORTFOLIO OF</span><span class="splash-emblem"><span class="splash-mark">K<span>.</span></span></span><p>Kaycee B. Manalo</p><span class="splash-role">Virtual Assistant <span>·</span> Creative Support</span><small>Creative mind.<br>Organized approach.</small><div class="splash-line"></div></div></div>
+  <header class="sticky top-0 z-50 border-b border-black/5 bg-cream/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+      <a href="#home" class="font-display text-xl font-bold">Kaycee<span class="text-rose">.</span></a>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch color theme">Theme</button>
+      <button id="menuBtn" class="sidebar-trigger" type="button" aria-label="Open navigation sidebar" aria-controls="sidebar" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+  </header>
+  <dialog id="sidebar" class="sidebar" aria-labelledby="sidebarTitle">
+    <div class="sidebar-top"><p id="sidebarTitle">Explore my portfolio<span>.</span></p><button id="sidebarClose" type="button" aria-label="Close navigation sidebar">×</button></div>
+    <nav class="sidebar-links" aria-label="Portfolio sections">
+      <a href="#home"><span>01</span>Home</a>
+      <a href="#about"><span>02</span>About me</a>
+      <a href="#services"><span>03</span>Services</a>
+      <a href="#skills"><span>04</span>Skills</a>
+      <a href="#work"><span>05</span>Selected work</a>
+      <a href="#credentials"><span>06</span>Credentials</a>
+      <a href="#contact"><span>07</span>Contact</a>
+    </nav>
+    <div class="sidebar-bottom"><p>Get to know my skills and background.</p><a class="btn-primary resume-download" href="assets/documents/ManaloKaycee-VA_Resume.pdf" download="Kaycee-Manalo-Resume.pdf">Download Resume <span aria-hidden="true">↓</span></a></div>
+  </dialog>
+
+  <main>
+    <section id="home" class="mx-auto grid min-h-[86vh] max-w-7xl items-center gap-12 px-5 py-16 md:grid-cols-[1.1fr_.9fr] md:px-8 md:py-24">
+      <div>
+        <p class="eyebrow">Virtual Assistant · Content & Design Support</p>
+        <h1 class="mt-5 max-w-4xl font-display text-5xl leading-[.95] sm:text-6xl md:text-7xl lg:text-8xl">
+          Organized support.<br><span class="text-rose italic">Creative execution.</span>
+        </h1>
+        <p class="mt-7 max-w-2xl text-base leading-8 text-neutral-600 md:text-lg">
+          I’m Kaycee B. Manalo, an aspiring Virtual Assistant with an IT and multimedia background. I support digital work through social media management, content planning, Canva design, graphic design, community engagement, and basic video editing.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="btn-primary" href="#work">View my work</a>
+          <a class="btn-ghost" href="assets/documents/ManaloKaycee-VA_Resume.pdf" target="_blank" rel="noopener">View résumé</a>
+        </div>
+        <div class="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-neutral-500">
+          <span>Batangas, Philippines</span><span>Available for remote support</span>
+        </div>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-[520px]">
+        <div class="absolute -left-5 top-8 h-36 w-36 rounded-full bg-blush blur-2xl"></div>
+        <div class="absolute -right-3 bottom-10 h-44 w-44 rounded-full bg-sand/60 blur-3xl"></div>
+        <div class="relative overflow-hidden rounded-[2.5rem] bg-white p-3 shadow-soft">
+          <img src="assets/images/my pictures/kaycee-studio.jpg" alt="Kaycee B. Manalo" class="aspect-[4/5] w-full rounded-[2rem] object-cover" />
+        </div>
+        <div class="absolute -bottom-5 -left-5 hidden rounded-2xl bg-ink px-5 py-4 text-white shadow-soft sm:block">
+          <p class="text-xs uppercase tracking-[.18em] text-white/60">Focus</p>
+          <p class="mt-1 font-semibold">Social Media · Design · Admin</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="border-y border-black/5 bg-white/50">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-2 md:px-8 md:py-28">
+        <div>
+          <p class="eyebrow section-label"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>About me</p>
+          <h2 class="section-title">A creative VA with a technical foundation.</h2>
+          <img class="about-photo" src="assets/images/my pictures/kaycee-graduation.jpg" alt="Kaycee at her graduation" loading="lazy" />
+        </div>
+        <div class="space-y-5 text-base leading-8 text-neutral-600">
+          <p>My background combines Information Technology, multimedia, UI/UX, and content creation. I enjoy turning ideas into organized plans and clean visual materials that are ready to publish or present.</p>
+          <p>I’m building my career as a Virtual Assistant and looking forward to supporting my first clients. Here, I share self-initiated brand concepts, internship graphics, personal design studies, and content planning samples that show how I think and create.</p>
+          <div class="grid grid-cols-2 gap-4 pt-4 sm:grid-cols-3">
+            <div><p class="font-display text-3xl">Canva</p><p class="text-sm text-neutral-500">Design</p></div>
+            <div><p class="font-display text-3xl">SMM</p><p class="text-sm text-neutral-500">Planning</p></div>
+            <div><p class="font-display text-3xl">IT</p><p class="text-sm text-neutral-500">Foundation</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+      <div class="max-w-2xl">
+        <p class="eyebrow section-label"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 12a22 22 0 0 0 18 0M12 11v4"/></svg>What I can support</p>
+        <h2 class="section-title">Virtual assistance with a visual edge.</h2>
+        <p class="mt-5 leading-8 text-neutral-600">From a well-planned content calendar to the finishing touches on a post, I bring care and attention to the details.</p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <article class="card p-7"><span class="service-icon"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11a8 8 0 0 1-8 8H7l-4 3V7a4 4 0 0 1 4-4h6a8 8 0 0 1 8 8Z"/><path d="M7 8h9M7 12h6"/></svg></span><h3 class="mt-8 font-display text-2xl">Social Media Support</h3><p class="mt-3 text-sm leading-7 text-neutral-600">Content planning, post concepts, captions, CTAs, posting schedules, and community engagement support.</p></article>
+        <article class="card p-7"><span class="service-icon"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 3 5 5-12 12-6 1 1-6ZM13 6l5 5M4 15l5 5"/></svg></span><h3 class="mt-8 font-display text-2xl">Canva & Graphic Design</h3><p class="mt-3 text-sm leading-7 text-neutral-600">Social graphics, promotional layouts, carousel posts, posters, and branded visual materials.</p></article>
+        <article class="card p-7"><span class="service-icon"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 11h18M7 15h3M14 15h3"/></svg></span><h3 class="mt-8 font-display text-2xl">Content Organization</h3><p class="mt-3 text-sm leading-7 text-neutral-600">Content calendars and organized campaign ideas using Excel, Google Sheets, and productivity tools.</p></article>
+        <article class="card p-7"><span class="service-icon"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 8 6 4-6 4Z"/></svg></span><h3 class="mt-8 font-display text-2xl">Basic Video Editing</h3><p class="mt-3 text-sm leading-7 text-neutral-600">Simple short-form video editing support using tools such as CapCut.</p></article>
+      </div>
+    </section>
+
+    <section id="skills" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28" aria-labelledby="skillsTitle">
+      <p class="eyebrow section-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 8h20m-13 4-3 3 3 3m6-6 3 3-3 3"/></svg>Technical & Software Skills</p>
+      <h2 id="skillsTitle" class="section-title">My creative and digital toolkit.</h2>
+      <div class="skills-grid">
+<article class="skill-group"><div class="skill-heading"><span class="skill-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 3 5 5-12 12-6 1 1-6ZM13 6l5 5M4 15l5 5"/></svg></span><h3>Creative & Design</h3></div><ul class="skill-list"><li><span class="tool-icon tool-monogram script" style="--tool-color:#147d91" aria-hidden="true">C</span><span class="tool-name">Canva</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#7653c2" aria-hidden="true">Fi</span><span class="tool-name">Figma</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#a95409" aria-hidden="true">Ai</span><span class="tool-name">Adobe Illustrator</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#2266ab" aria-hidden="true">Ps</span><span class="tool-name">Adobe Photoshop</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#a32f77" aria-hidden="true">Xd</span><span class="tool-name">Adobe XD</span></li><li><span class="tool-icon tool-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg></span><span class="tool-name">Basic Graphic Design</span></li><li><span class="tool-icon tool-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="9" r="1.5"/><path d="m3 17 5-5 4 4 4-6 5 7"/></svg></span><span class="tool-name">Photo Editing</span></li><li><span class="tool-icon tool-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m10 8 6 4-6 4Z"/></svg></span><span class="tool-name">Thumbnail Design</span></li></ul></article>
+<article class="skill-group"><div class="skill-heading"><span class="skill-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11a8 8 0 0 1-8 8H7l-4 3V7a4 4 0 0 1 4-4h6a8 8 0 0 1 8 8Z"/><path d="M7 8h9M7 12h6"/></svg></span><h3>Social Media</h3></div><ul class="skill-list"><li><span class="tool-icon tool-monogram " style="--tool-color:#ac3c79" aria-hidden="true">ig</span><span class="tool-name">Instagram</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#2263bb" aria-hidden="true">f</span><span class="tool-name">Facebook</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#343849" aria-hidden="true">♪</span><span class="tool-name">TikTok</span></li></ul></article>
+<article class="skill-group"><div class="skill-heading"><span class="skill-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M9 10v11M7 2v4M17 2v4"/></svg></span><h3>Productivity</h3></div><ul class="skill-list"><li><span class="tool-icon tool-monogram " style="--tool-color:#437b58" aria-hidden="true">G</span><span class="tool-name">Google Workspace</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#bd512d" aria-hidden="true">O</span><span class="tool-name">Microsoft Office</span></li><li><span class="tool-icon tool-monogram" style="--tool-color:#b7472a" aria-hidden="true">P</span><span class="tool-name">PowerPoint</span></li><li><span class="tool-icon tool-monogram" style="--tool-color:#2457a6" aria-hidden="true">W</span><span class="tool-name">Word</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#2e7955" aria-hidden="true">Gs</span><span class="tool-name">Google Sheets</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#236947" aria-hidden="true">X</span><span class="tool-name">Excel</span></li></ul></article>
+<article class="skill-group"><div class="skill-heading"><span class="skill-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7v7M12 7v10M16 7v5"/></svg></span><h3>Project Management</h3></div><ul class="skill-list"><li><span class="tool-icon tool-monogram " style="--tool-color:#286eb1" aria-hidden="true">Tr</span><span class="tool-name">Trello</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#525368" aria-hidden="true">Git</span><span class="tool-name">GitHub</span></li></ul></article>
+<article class="skill-group"><div class="skill-heading"><span class="skill-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 8h20m-13 4-3 3 3 3m6-6 3 3-3 3"/></svg></span><h3>Web & Technical</h3></div><ul class="skill-list"><li><span class="tool-icon tool-monogram " style="--tool-color:#b54d26" aria-hidden="true">5</span><span class="tool-name">HTML</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#2e63a9" aria-hidden="true">3</span><span class="tool-name">CSS</span></li><li><span class="tool-icon tool-monogram " style="--tool-color:#8c7115" aria-hidden="true">JS</span><span class="tool-name">JavaScript</span></li><li><span class="tool-icon tool-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 8h20m-14 4-3 3 3 3m8-6 3 3-3 3m-3-7-2 8"/></svg></span><span class="tool-name">Website Development</span></li></ul></article>
+<article class="skill-group"><div class="skill-heading"><span class="skill-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 8 6 4-6 4Z"/></svg></span><h3>Video</h3></div><ul class="skill-list"><li><span class="tool-icon tool-monogram " style="--tool-color:#353843" aria-hidden="true">Cc</span><span class="tool-name">CapCut</span></li><li><span class="tool-icon tool-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="m8 8 12 12M8 16 20 4M14 12l-3 3"/></svg></span><span class="tool-name">Basic Video Editing</span></li></ul></article>
+      </div>
+    </section>
+
+    <section id="work" class="bg-ink text-white">
+      <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+        <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div class="max-w-3xl">
+            <p class="eyebrow section-label"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Selected work</p>
+            <h2 class="mt-3 font-display text-4xl leading-tight md:text-6xl">Ideas, brought to life.</h2>
+            <p class="mt-5 max-w-2xl leading-8 text-white/60">A selection of personal projects and internship work, shaped by curiosity and a love for thoughtful design.</p>
+          </div>
+          
+        </div>
+        <div id="filters" role="group" aria-label="Work categories"></div>
+        <div class="collection-intro"><div><h3 id="collectionTitle"></h3><p id="categoryNote" class="category-note"></p></div><p id="collectionCount" class="collection-count" aria-live="polite"></p></div>
+        <div id="workCarousel" role="region" aria-roledescription="carousel" aria-label="Selected work">
+          <div id="workGrid" aria-live="polite" aria-atomic="true"></div>
+          <div class="cert-controls">
+            <button id="workPrev" type="button" aria-label="Previous design" aria-controls="workGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+            <button id="workNext" type="button" aria-label="Next design" aria-controls="workGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+            <span id="workCounter" class="cert-counter" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project-samples" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28" aria-labelledby="samplesTitle">
+      <div class="samples-heading"><p class="eyebrow section-label"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 11h18M7 15h3M14 15h3"/></svg>Planning & motion</p><h2 id="samplesTitle" class="section-title">From a clear plan to a creative edit.</h2></div>
+      <div class="samples-layout">
+        <article class="planning-sample">
+          <div class="sample-meta"><span>CONTENT PLANNING</span><span>EXCEL</span></div>
+          <h3>Social Media Content Calendar Strategy</h3>
+          <p>A self-initiated social media planning project organized in Excel, bringing content ideas and posting schedules together in one place.</p>
+          <div class="planning-details"><span>Content ideas</span><span>Posting schedules</span></div>
+          <a class="btn-primary" href="assets/documents/Kaycee_SMM_Content_Calendar_Strategy.xlsx">Open spreadsheet <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="video-sample" aria-labelledby="videoTitle">
+          <div class="video-wrap">
+            <video class="portrait-video" controls playsinline preload="metadata" aria-labelledby="videoTitle" aria-describedby="videoDescription">
+              <source src="assets/video/030b5cef-55b2-451c-b23f-47c9b6093c63.mp4" type="video/mp4" />
+              Your browser does not support video playback.
+            </video>
+          </div>
+          <div class="video-copy"><div class="sample-meta"><span>VIDEO EDITING</span><span>2024</span></div><h3 id="videoTitle">A look inside our Mac Laboratory.</h3><p id="videoDescription">Created in 2024 for a school project, this video showcases our Mac Laboratory Room. It’s an early sample of my video editing work, turning a familiar campus space into a short visual story.</p><span class="project-tag">School project</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="credentials" class="border-y border-black/5 bg-white/50">
+      <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+        <div class="max-w-2xl">
+          <p class="eyebrow section-label"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="m8 12-2 9 6-3 6 3-2-9"/></svg>Credentials</p>
+          <h2 class="section-title">Training behind the work.</h2>
+        </div>
+        <div class="cert-carousel" role="region" aria-roledescription="carousel" aria-label="Certificates">
+          <div id="certGrid" aria-live="polite" aria-atomic="true"></div>
+          <div class="cert-controls">
+            <button id="certPrev" type="button" aria-label="Previous certificate" aria-controls="certGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+            <button id="certNext" type="button" aria-label="Next certificate" aria-controls="certGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+            <span id="certCounter" class="cert-counter" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+      <div class="overflow-hidden rounded-[2.25rem] bg-rose px-7 py-12 text-white md:px-14 md:py-16">
+        <div class="contact-layout">
+          <img class="contact-photo" src="assets/images/my pictures/contact-photo.jpeg" alt="Kaycee Manalo smiling" loading="lazy" />
+          <div class="contact-copy">
+          <div class="max-w-3xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-white/60"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>Let’s connect</p>
+            <h2 class="mt-4 font-display text-4xl leading-tight md:text-6xl">Need organized, creative digital support?</h2>
+            <p class="mt-5 max-w-2xl leading-8 text-white/75">I’m open to Virtual Assistant opportunities involving social media support, content organization, graphic design, and general digital assistance.</p>
+          </div>
+          <div class="flex flex-col gap-3 sm:flex-row md:flex-col">
+            <a class="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-ink transition hover:-translate-y-0.5" href="mailto:kayceebuenomanalo@gmail.com">Email me</a>
+            <a class="rounded-full border border-white/35 px-6 py-3 text-center text-sm font-semibold transition hover:bg-white hover:text-ink" href="https://www.linkedin.com/in/kaycee-manalo-b856b1390" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-black/5">
+    <div class="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-8 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between md:px-8">
+      <p>© <span id="year"></span> Kaycee B. Manalo</p>
+      <p>Virtual Assistant Portfolio</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-4" role="dialog" aria-modal="true" aria-label="Project preview">
+    <button id="lightboxClose" class="absolute right-5 top-5 rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur hover:bg-white/20">Close</button>
+    <img id="lightboxImage" src="" alt="Project preview" class="max-h-[88vh] max-w-[94vw] rounded-2xl object-contain shadow-2xl" />
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+
+
+
