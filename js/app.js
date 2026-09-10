@@ -242,3 +242,17 @@ setTimeout(() => { document.documentElement.classList.remove('show-intro'); docu
 lightbox.addEventListener('keydown', e => { if (e.key === 'Tab') { e.preventDefault(); lightboxClose.focus(); } });
 
 
+
+const backToTop = document.getElementById('backToTop');
+function updateBackToTop() {
+  backToTop.hidden = window.scrollY < 400;
+}
+window.addEventListener('scroll', updateBackToTop, { passive: true });
+window.addEventListener('pageshow', updateBackToTop);
+backToTop.addEventListener('click', () => {
+  const home = document.getElementById('home');
+  home.setAttribute('tabindex', '-1');
+  home.focus({ preventScroll: true });
+  window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+});
+updateBackToTop();
