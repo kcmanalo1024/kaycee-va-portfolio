@@ -294,3 +294,19 @@ body {
   font-weight: 600;
   letter-spacing: .04em;
 }
+
+/* Full-width, single-line dividers between portfolio sections. */
+main > section { position:relative; border-top:0!important; border-bottom:0!important; }
+main > section + section::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:50%;
+  width:100vw;
+  height:1px;
+  transform:translateX(-50%);
+  background:var(--line);
+  pointer-events:none;
+}
+/* Full-bleed separators must not introduce horizontal scrolling. */
+main { overflow-x:clip; }
