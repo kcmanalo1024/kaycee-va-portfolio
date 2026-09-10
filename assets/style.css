@@ -287,3 +287,10 @@ body {
 #backToTop[hidden] { display:none; }
 #backToTop:hover { transform:translateY(-3px); border-color:var(--accent); background:var(--gradient-surface); }
 #backToTop svg { width:22px; height:22px; }
+
+/* Match work category labels to the portfolio's existing sans-serif type. */
+#filters .filter-btn {
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
