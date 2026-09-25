@@ -181,7 +181,16 @@ const works = [
     "caption": "A promotional poster arranging skincare products, packaging, and golden bubbles around a bold headline and call to action.",
     "alt": "LUMA — Poster Design",
     "src": "assets/images/luma/Luma_PosterDesign.jpg"
-  }
+  },
+{
+  "title": "LUMA",
+  "category": "LUMA",
+  "type": "Branding · Skincare Design",
+  "captionTitle": "Skincare Benefits Campaign",
+  "caption": "A skincare campaign concept pairing a split-portrait comparison with close-up skin details and a prominent serum visual. A warm neutral palette, curved sections, and golden accents connect the portrait to the product presentation, while benefit callouts and a clear call to action guide the viewer through the layout.",
+  "alt": "LUMA — Skincare Benefits Campaign",
+  "src": "assets/images/luma/Luma_Skincare Benefits Campaign.jpg"
+}
 ],
   // Timplado — exact files from the uploaded collection
   ...[
