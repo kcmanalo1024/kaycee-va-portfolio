@@ -1,3 +1,140 @@
+const internshipDescriptions = [
+  "A hiring template created during my internship, designed to present recruitment information in a clear, professional layout. I used an image of the Unisea Manila building as the background, lowering its opacity so it remained visible without competing with the recruitment details.",
+  "A standee created during my internship, arranging corporate information in a tall display format with a clear visual hierarchy. I turned Unisea’s existing ship images into silhouettes, paired them with the company’s primary logo, and added a brief company description.",
+  "A standee created during my internship, arranging corporate information in a tall display format with a clear visual hierarchy. This variation follows the ship-silhouette concept of Internship Design 02, using the white version of the company logo.",
+  "A standee created during my internship, arranging corporate information in a tall display format with a clear visual hierarchy. I adapted the earlier standee concept into a white version, using the company’s primary logo.",
+  "A standee created during my internship, arranging corporate information in a tall display format with a clear visual hierarchy. This variation uses a white standee design with the white version of the company logo.",
+  "A standee created during my internship, arranging corporate information in a tall display format with a clear visual hierarchy. Following my OJT supervisor’s direction, I developed a more graphic-led design using the company’s existing branding to keep it consistent with its visual identity.",
+  "A standee created during my internship, arranging corporate information in a tall display format with a clear visual hierarchy. This variation develops the graphic-led approach of Internship Design 06 into a dark theme, using the white version of the company logo.",
+  "A standee created during my internship, arranging corporate information in a tall display format with a clear visual hierarchy. I explored an alternative dark-themed layout, using the white version of the company logo and adding a brief company description.",
+  "A branded desktop wallpaper featuring the company logo and maritime service areas, adapted to a widescreen format for a consistent workplace identity. I used the company’s existing branding to create a minimalist design."
+];
+
+const timpladoCaptions = [
+  [
+    "Coffee Break",
+    "A product-led brand concept pairing an iced coffee visual with bold, repeated typography and a warm café palette."
+  ],
+  [
+    "Menu",
+    "A menu concept arranging the drink range into a clear, consistent product grid."
+  ],
+  [
+    "Which Timplado Are You?",
+    "A drink selection concept combining product imagery with expressive handwritten accents."
+  ],
+  [
+    "Coming Soon",
+    "A teaser layout introducing featured drinks through product cutouts and a warm, inviting composition."
+  ],
+  [
+    "Three Days to Go",
+    "The first of three coordinated countdown graphics for the fictional brand launch."
+  ],
+  [
+    "Two Days to Go",
+    "A countdown variation using oversized numerals, photography, and red graphic accents."
+  ],
+  [
+    "One Day Left",
+    "The final countdown concept, keeping the campaign’s visual structure consistent."
+  ],
+  [
+    "Grand Opening",
+    "A fictional opening announcement exploring bold display type and a photograph-led layout."
+  ],
+  [
+    "Opening Promotion",
+    "A promotional concept combining a word-search graphic and drink imagery."
+  ]
+];
+
+const posterCaptions = [
+  [
+    "My Graduation Pubmat",
+    "A personal graduation tribute bringing together my graduation photos from kindergarten through college. The layered collage celebrates the milestones along my journey and honors the people whose love, guidance, and support helped me reach this moment."
+  ],
+  [
+    "Will you choose me in another lifetime?",
+    "A personal poster exploring the quiet uncertainty of being chosen again in another life. Glowing silhouettes, a dark atmosphere, and delicate typography give the question a dreamlike sense of longing and possibility."
+  ],
+  [
+    "The world was a blur, U weren’t",
+    "A portrait-led poster about one person remaining clear when everything around them feels out of focus. Warm light, blurred surroundings, and a sharply defined subject turn that contrast into a visual expression of connection."
+  ],
+  [
+    "La La Lost You",
+    "A personal fan-made poster inspired by NIKI’s song, with text drawn from its lyrics. A blue-toned collage, fragmented photographs, and layered typography create a reflective composition that explores longing, distance, and memories of a connection."
+  ],
+  [
+    "Not You Too by Drake",
+    "A personal fan-made poster inspired by Drake’s song, using lyrics from the track as part of the composition. The oversized “Trust Who?” text behind his portrait, monochrome palette, and layered textures emphasize a sense of vulnerability and uncertainty."
+  ],
+  [
+    "Count Me Out by Kendrick Lamar",
+    "A personal fan-made poster inspired by Kendrick Lamar’s song, incorporating lyrics from the track into the design. Torn-paper layers, a central portrait, and bold red accents create a raw, expressive composition exploring self-reflection and resilience."
+  ]
+];
+
+const carouselCaptions = [
+  [
+    "Slide 01 — Build a Better Team",
+    "An opening hook combining oversized typography with yellow callouts to introduce the carousel."
+  ],
+  [
+    "Slide 02 — What We Do",
+    "A service introduction pairing a concise headline with a photograph-led composition."
+  ],
+  [
+    "Slide 03 — More Partnership",
+    "A browser-inspired panel groups the key messages into a scannable layout."
+  ],
+  [
+    "Slide 04 — What Can You Outsource?",
+    "A checklist presents the range of roles with a clear reading order."
+  ],
+  [
+    "Slide 05 — Scout, Screen, Secure",
+    "A photo collage and magnifying-glass motif introduce the recruitment process."
+  ],
+  [
+    "Slide 06 — Quality, Not Quantity",
+    "A structured checklist breaks the screening process into individual steps."
+  ],
+  [
+    "Slide 07 — Clear Rates Upfront",
+    "A pinned-note layout draws attention to the rate information in the submission."
+  ],
+  [
+    "Slide 08 — One Role, One Placement Fee",
+    "Three coordinated cards make the submitted pricing tiers easy to compare."
+  ],
+  [
+    "Slide 09 — You Choose the Person",
+    "A portrait-led composition highlights the candidate-selection message."
+  ],
+  [
+    "Slide 10 — The Right Fit Matters",
+    "A handshake image and framed message emphasize the replacement-policy content."
+  ],
+  [
+    "Slide 11 — Talent Without the Contractor Admin",
+    "A document collage and yellow pricing panel organize the optional-service message."
+  ],
+  [
+    "Slide 12 — Good Work Starts Here",
+    "The closing slide returns to the bold typographic style and finishes with a call to action."
+  ],
+  [
+    "Phone Mockup",
+    "A presentation mockup showing how the carousel artwork could appear on a social media profile."
+  ],
+  [
+    "Typography & Color Palette",
+    "Georgia, DM Sans, and Syne paired with cream, black, red, and yellow to create a consistent visual language across the slides."
+  ]
+];
+
 const works = [
   // Timplado — exact files from the uploaded collection
   ...[
@@ -11,9 +148,13 @@ const works = [
     'Green Simple Morning Routine Carousel Instagram Post - 13.png',
     'Green Simple Morning Routine Carousel Instagram Post - 14.png'
   ].map((file, i) => ({
-    title: `Timplado — Brand Concept ${String(i + 1).padStart(2, '0')}`,
+    title: 'Timplado',
+    captionTitle: timpladoCaptions[i][0],
+    caption: timpladoCaptions[i][1],
+    alt: `Timplado — ${timpladoCaptions[i][0]}`,
+    created: 'Created September 2026',
     category: 'Brand Concept',
-    type: 'Social Media Design',
+    type: 'FICTIONAL BRAND',
     src: `assets/images/timplado/${file}`
   })),
 
@@ -25,9 +166,10 @@ const works = [
   ].map((file, i) => ({
     title: `Internship Design ${String(i + 1).padStart(2, '0')}`,
     category: 'Internship Work',
-    type: i === 0 ? 'Hiring Template' : i === 8 ? 'Desktop Wallpaper' : 'Standee Design',
+    type: i === 0 ? 'Hiring template' : i === 8 ? 'Desktop Wallpaper' : 'Standee Design',
     confidential: i === 0,
-    description: i === 0 ? 'A hiring template created during my internship, designed to present recruitment information in a clear, professional layout.' : i === 8 ? 'A desktop wallpaper created during my internship, bringing a consistent corporate visual identity to the workplace screen.' : 'A standee design created during my internship, arranging corporate information in a tall display format with a clear visual hierarchy.',
+    created: 'Created February – July 2026',
+    description: internshipDescriptions[i],
     src: `assets/images/ojt/${file}`
   })),
 
@@ -37,18 +179,25 @@ const works = [
     'Phone Mock-up.png',
     'Fonts and Color Palette.png'
   ].map((file, i) => ({
-    title: 'SOCIAL MEDIA CAROUSEL',
+    title: 'Social Media Carousel',
     category: 'Social Media Carousel',
-    type: 'Social Media · Carousel Design',
-    alt: i < 12 ? `Social Media Carousel — slide ${i + 1}` : `Social Media Carousel — ${file.replace('.png', '')}`,
+    type: 'APPLICATION DESIGN EXERCISE',
+    created: 'Created September 2026',
+    captionTitle: carouselCaptions[i][0],
+    caption: carouselCaptions[i][1],
+    alt: `Social Media Carousel — ${carouselCaptions[i][0]}`,
     src: `assets/images/social-media-carousel/${file}`
   })),
 
   // Personal graphic-design studies — exact files from the uploaded collection
   ...['Copy of Tubaland CV - 38.png','Copy of Tubaland CV - 39.png','Copy of Tubaland CV - 40.png','Copy of Tubaland CV - 41.png','Copy of Tubaland CV - 42.png','Copy of Tubaland CV - 43.png'].map((file, i) => ({
-    title: `Personal Design Study ${String(i + 1).padStart(2, '0')}`,
+    title: 'Personal Posters',
+    captionTitle: posterCaptions[i][0],
+    caption: posterCaptions[i][1],
+    alt: `Personal Posters — ${posterCaptions[i][0]}`,
+    created: 'Created September 2026',
     category: 'Personal Work',
-    type: 'Graphic Design Study',
+    type: 'POSTER DESIGN',
     src: `assets/images/personal_work/${file}`
   }))
 ];
@@ -74,10 +223,10 @@ function renderFilters() {
 let workCategory = categories[0];
 let workIndex = 0;
 const workDescriptions = {
-  'Social Media Carousel': 'A collection of social media carousel concepts designed to communicate ideas clearly through structured layouts, visual hierarchy, and engaging content.',
-  'Brand Concept': 'Timplado is a fictional coffee-shop brand I created as a personal showcase project. These social media designs explore how a consistent visual style can introduce a brand and bring its content ideas to life.',
-  'Internship Work': 'A collection of corporate graphics created during my internship, including hiring templates and workplace materials. These pieces show my approach to organizing information in clear, professional layouts.',
-  'Personal Work': 'Independent design studies created to explore visual ideas and develop my graphic design skills. This collection gives me room to experiment with composition, typography, and color beyond a client brief.'
+  'Social Media Carousel': 'A 12-slide carousel submitted for Tailor Made Outsourcing’s Graphic Designer – Social Media application task. The brief asked applicants to create a social media post using the company’s existing Instagram branding and aesthetic. My response develops that brief into a coordinated carousel, using bold typography, structured service information, and a consistent color palette. Presented here as an application submission.',
+  'Brand Concept': 'A fictional café brand exploring product presentation, typography, and a cohesive visual identity through menus, promotional graphics, and launch concepts.',
+  'Internship Work': 'During my internship from February to July 2026, my supervisor assigned me to lead the graphic design work. I created recruitment materials, standees, and a desktop wallpaper using Unisea’s existing images, logos, and branding, with direction from my supervisor.',
+  'Personal Work': 'Self-initiated poster studies exploring typography, image composition, and visual storytelling.'
 };
 function renderWorks(filter = workCategory) {
   if (filter !== workCategory) { workCategory = filter; workIndex = 0; }
@@ -108,10 +257,12 @@ function renderWorks(filter = workCategory) {
       </button>
       <div class="cert-copy">
         <p class="eyebrow">${item.type}</p>
+        ${item.created ? `<p class="work-created">${item.created}</p>` : ""}
         <h3>${item.title}</h3>
+        ${workCategory === 'Internship Work' ? `<p class="cert-description internship-context">${workDescriptions[workCategory]}</p>` : ''}
         <p class="cert-description">${item.description || workDescriptions[workCategory]}</p>
         ${item.confidential ? '<p class="confidentiality-note"><strong>Confidentiality note</strong>Some information in this hiring template has been blocked out to protect the company’s confidential details.</p>' : ''}
-        <div class="work-detail"><p>${item.alt || item.title}</p></div>
+        <div class="work-detail">${item.caption ? `<h4>${item.captionTitle}</h4><p class="work-caption">${item.caption}</p>` : `<p>${item.alt || item.title}</p>`}</div>
       </div>
     </article>`;
   document.getElementById('workCounter').textContent = `${String(workIndex + 1).padStart(2, '0')} / ${String(visible.length).padStart(2, '0')}`;

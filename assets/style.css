@@ -425,3 +425,9 @@ header nav > .brand-link { display:inline-flex; align-items:center; flex-shrink:
   box-shadow:none;
 }
 #skills .tool-icon > svg { flex-shrink:0; max-width:100%; max-height:100%; transform:none; filter:none; }
+
+.work-created { margin-top:10px; font-size:12px; color:var(--muted); }
+.work-detail h4 { font:20px/1.4 Georgia,serif; letter-spacing:-.02em; }
+.work-detail .work-caption { margin-top:10px; font:14px/1.9 Inter,Arial,sans-serif; color:var(--muted); }
+
+#workGrid .internship-context { margin-bottom:16px; }
