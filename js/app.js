@@ -203,6 +203,7 @@ const works = [
 ];
 
 const certificates = [
+  { title: '30-Day AI-Powered VA Bootcamp — Social Media Management', note: 'Aspiring VA with Zeah · September 13, 2026', src: 'assets/images/certs/kaycee-smm-bootcamp-certificate.png' },
   { title: 'TESDA NC III — Visual Graphic Design', note: 'TESDA', src: 'assets/images/certs/cert-IMG_5211 - Copy.jpeg' },
   { title: 'Digital Skills: Mobile', note: 'Accenture / FutureLearn', src: 'assets/images/certs/cert-accenture-mobile.jpg' },
   { title: 'Digital Skills: User Experience', note: 'Accenture / FutureLearn', src: 'assets/images/certs/cert-accenture-ux.jpg' },
@@ -309,6 +310,7 @@ filters.addEventListener('keydown', event => {
 
 const certGrid = document.getElementById('certGrid');
 const certificateDescriptions = [
+  'A certificate of completion awarded by Aspiring VA with Zeah on September 13, 2026, for the 30-Day AI-Powered VA Bootcamp. The training focused on social media management, including content creation and scheduling, content calendars, audience engagement, and performance tracking. It covered tools such as Canva, Meta Business Suite, Google Workspace, ChatGPT, Trello, ClickUp, and Slack to support a consistent, professional online presence.',
   'A TESDA National Certificate III recognizing competency in visual graphic design. It covers logo and print design, user experience and interface design, product packaging, and display design.',
   'An Accenture course on FutureLearn exploring the role of mobile technology in the digital world. It introduces mobile design, development, and the creation of mobile experiences.',
   'An introductory Accenture course on FutureLearn about user experience (UX) and why it matters in digital products and services.',
