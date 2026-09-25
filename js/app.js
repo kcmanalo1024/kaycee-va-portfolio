@@ -136,6 +136,53 @@ const carouselCaptions = [
 ];
 
 const works = [
+  ...[
+  {
+    "title": "LUMA",
+    "category": "LUMA",
+    "type": "Branding · Skincare Design",
+    "captionTitle": "Branding Kit",
+    "caption": "A brand presentation bringing together the LUMA logos, neutral color palette, typography, and skincare packaging mockups.",
+    "alt": "LUMA — Branding Kit",
+    "src": "assets/images/luma/Luma_BrandingKit.jpg"
+  },
+  {
+    "title": "LUMA",
+    "category": "LUMA",
+    "type": "Branding · Skincare Design",
+    "captionTitle": "Social Media Design",
+    "caption": "A serum-focused social media layout pairing product and packaging imagery with a stone setting, soft clouds, and minimal benefit icons.",
+    "alt": "LUMA — Social Media Design",
+    "src": "assets/images/luma/Luma_Social Media Design.jpg"
+  },
+  {
+    "title": "LUMA",
+    "category": "LUMA",
+    "type": "Branding · Skincare Design",
+    "captionTitle": "Advertisement",
+    "caption": "A product-led advertisement featuring a hydrating serum, golden bubbles, a clear headline, and a prominent call to action.",
+    "alt": "LUMA — Advertisement",
+    "src": "assets/images/luma/Luma_Advertisement.jpg"
+  },
+  {
+    "title": "LUMA",
+    "category": "LUMA",
+    "type": "Branding · Skincare Design",
+    "captionTitle": "Marketing Graphic",
+    "caption": "A skincare range presentation combining product callouts with a three-step daily routine in a structured layout.",
+    "alt": "LUMA — Marketing Graphic",
+    "src": "assets/images/luma/Luma_Marketing Graphic.jpg"
+  },
+  {
+    "title": "LUMA",
+    "category": "LUMA",
+    "type": "Branding · Skincare Design",
+    "captionTitle": "Poster Design",
+    "caption": "A promotional poster arranging skincare products, packaging, and golden bubbles around a bold headline and call to action.",
+    "alt": "LUMA — Poster Design",
+    "src": "assets/images/luma/Luma_PosterDesign.jpg"
+  }
+],
   // Timplado — exact files from the uploaded collection
   ...[
     'Green Simple Morning Routine Carousel Instagram Post - 5.png',
@@ -212,8 +259,8 @@ const certificates = [
 
 const workGrid = document.getElementById('workGrid');
 const filters = document.getElementById('filters');
-const categories = ['Social Media Carousel', 'Brand Concept', 'Internship Work', 'Personal Work'];
-const categoryLabels = ['Social Media Carousel', 'Timplado Concept', 'Internship Design', 'Personal Posters'];
+const categories = ['Social Media Carousel', 'Brand Concept', 'Internship Work', 'Personal Work', 'LUMA'];
+const categoryLabels = ['Social Media Carousel', 'Timplado Concept', 'Internship Design', 'Personal Posters', 'LUMA'];
 
 function renderFilters() {
   filters.innerHTML = categories.map((category, index) => `
@@ -224,6 +271,7 @@ function renderFilters() {
 let workCategory = categories[0];
 let workIndex = 0;
 const workDescriptions = {
+  'LUMA': 'A coordinated skincare design collection exploring brand identity, product presentation, and promotional layouts through a neutral palette, clean typography, and consistent packaging imagery.',
   'Social Media Carousel': 'A 12-slide carousel submitted for Tailor Made Outsourcing’s Graphic Designer – Social Media application task. The brief asked applicants to create a social media post using the company’s existing Instagram branding and aesthetic. My response develops that brief into a coordinated carousel, using bold typography, structured service information, and a consistent color palette. Presented here as an application submission.',
   'Brand Concept': 'A fictional café brand exploring product presentation, typography, and a cohesive visual identity through menus, promotional graphics, and launch concepts.',
   'Internship Work': 'During my internship from February to July 2026, my supervisor assigned me to lead the graphic design work. I created recruitment materials, standees, and a desktop wallpaper using Unisea’s existing images, logos, and branding, with direction from my supervisor.',
@@ -237,12 +285,14 @@ function renderWorks(filter = workCategory) {
   document.getElementById('workCarousel').setAttribute('aria-labelledby', `workTab${categoryIndex}`);
   document.getElementById('workLocation').textContent = categoryLabels[categoryIndex];
   document.getElementById('categoryNote').textContent = {
+    'LUMA': 'Brand identity · Social media · Promotional design',
     'Social Media Carousel': 'Social Media · Carousel Design',
     'Brand Concept': 'Self-initiated social media design · Fictional brand',
     'Internship Work': 'Corporate graphics · Internship projects',
     'Personal Work': 'Graphic design · Independent studies'
   }[workCategory];
   document.getElementById('collectionTitle').textContent = {
+    'LUMA': 'LUMA · Skincare design',
     'Social Media Carousel': 'SOCIAL MEDIA CAROUSEL',
     'Brand Concept': 'Timplado · A coffee-shop concept',
     'Internship Work': 'Design in a professional setting',
