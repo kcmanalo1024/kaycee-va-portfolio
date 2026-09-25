@@ -579,3 +579,6 @@ header nav > .brand-link { display:inline-flex; align-items:center; flex-shrink:
 @media(max-width:767px) {
   #work .work-tabs #filters .filter-btn, #certTabs .filter-btn, #photoTabs button { width:160px; min-width:160px; max-width:160px; flex-basis:160px; }
 }
+
+.photo-narrative { margin-top:18px; color:var(--muted); font-size:14px; line-height:1.9; }
+.photo-tools { margin-top:18px; color:var(--accent); font-size:12px; line-height:1.7; }
