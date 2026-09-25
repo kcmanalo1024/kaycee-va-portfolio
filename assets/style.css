@@ -566,3 +566,16 @@ header nav > .brand-link { display:inline-flex; align-items:center; flex-shrink:
   .work-tabs .window-dots { padding:20px 18px 0 3px; }
   #work .work-tabs #filters .filter-btn, #certTabs .filter-btn, #photoTabs button { min-height:47px; padding:0 20px!important; }
 }
+
+/* Consistent tab widths; long labels dissolve softly at the trailing edge. */
+#work .work-tabs #filters .filter-btn, #certTabs .filter-btn, #photoTabs button {
+  box-sizing:border-box; width:184px; min-width:184px; max-width:184px; flex:0 0 184px;
+}
+#work .work-tabs #filters .tab-title, #certTabs .tab-title, #photoTabs .tab-title {
+  display:block; flex:1; min-width:0; overflow:hidden; white-space:nowrap;
+  font:inherit; color:inherit; letter-spacing:inherit; transform:none;
+}
+.work-tabs .tab-title.is-overflowing { mask-image:linear-gradient(to right,#000 0%,#000 calc(100% - 28px),transparent 100%); -webkit-mask-image:linear-gradient(to right,#000 0%,#000 calc(100% - 28px),transparent 100%); }
+@media(max-width:767px) {
+  #work .work-tabs #filters .filter-btn, #certTabs .filter-btn, #photoTabs button { width:160px; min-width:160px; max-width:160px; flex-basis:160px; }
+}

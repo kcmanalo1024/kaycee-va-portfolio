@@ -46,6 +46,7 @@
     frame.style.setProperty('--photo-ratio', `${width} / ${height}`);
     frame.style.setProperty('--photo-width', `${Math.min(640, 520 * width / height)}px`);
     document.getElementById('photoTitle').textContent = `${number} — ${title}`;
+    document.getElementById('photoLocation').textContent = `${number} — ${title}`;
     document.getElementById('photoDescription').textContent = description;
     panel.setAttribute('aria-labelledby', `photoTab${number}`);
     [...tabs.children].forEach((tab, i) => { tab.setAttribute('aria-selected', String(i === index)); tab.tabIndex = i === index ? 0 : -1; });
@@ -54,7 +55,10 @@
     const button = document.createElement('button');
     button.type = 'button'; button.id = `photoTab${number}`;
     button.setAttribute('role', 'tab'); button.setAttribute('aria-controls', 'photoPanel');
-    button.textContent = `${number} — ${title}`;
+    const label = document.createElement('span');
+    label.className = 'tab-title';
+    label.textContent = `${number} — ${title}`;
+    button.append(label);
     button.addEventListener('click', () => showPhoto(index));
     tabs.append(button);
   });

@@ -264,7 +264,7 @@ const categoryLabels = ['Social Media Carousel', 'LUMA', 'Timplado Concept', 'In
 
 function renderFilters() {
   filters.innerHTML = categories.map((category, index) => `
-    <button type="button" id="workTab${index}" role="tab" class="filter-btn ${index === 0 ? 'active' : ''}" aria-selected="${index === 0}" aria-controls="workCarousel" tabindex="${index === 0 ? 0 : -1}" data-filter="${category}"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7l-4-4ZM14 3v5h4M9 12h6M9 16h6"/></svg>${categoryLabels[index]}</button>
+    <button type="button" id="workTab${index}" role="tab" class="filter-btn ${index === 0 ? 'active' : ''}" aria-selected="${index === 0}" aria-controls="workCarousel" tabindex="${index === 0 ? 0 : -1}" data-filter="${category}"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7l-4-4ZM14 3v5h4M9 12h6M9 16h6"/></svg><span class="tab-title">${categoryLabels[index]}</span></button>
   `).join('');
 }
 
@@ -377,7 +377,7 @@ const certificateDescriptions = [
 let certificateIndex = 0;
 const certTabs = document.getElementById('certTabs');
 const certificateTabLabels = ['Social Media Management', 'Visual Graphic Design', 'Digital Skills: Mobile', 'User Experience', 'Java Certification'];
-certTabs.innerHTML = certificates.map((cert, i) => `<button type="button" class="filter-btn" role="tab" id="certTab${i}" aria-controls="certGrid" data-cert="${i}">${certificateTabLabels[i]}</button>`).join('');
+certTabs.innerHTML = certificates.map((cert, i) => `<button type="button" class="filter-btn" role="tab" id="certTab${i}" aria-controls="certGrid" data-cert="${i}"><span class="tab-title">${certificateTabLabels[i]}</span></button>`).join('');
 certTabs.addEventListener('click', event => {
   const button = event.target.closest('[data-cert]');
   if (!button) return;
@@ -557,4 +557,21 @@ updateBackToTop();
   });
   document.addEventListener('click', event => { if (!trigger.parentElement.contains(event.target)) close(); });
   trigger.parentElement.addEventListener('focusout', event => { if (!trigger.parentElement.contains(event.relatedTarget)) close(); });
+})();
+
+// Measure visible tab labels after layout and when categories or sizes change.
+(() => {
+  function updateTabFades() {
+    document.querySelectorAll('.work-tabs [role="tab"]').forEach(tab => {
+      const label = tab.querySelector('.tab-title');
+      if (!label) return;
+      tab.title = label.textContent;
+      label.classList.toggle('is-overflowing', label.clientWidth > 0 && label.scrollWidth > label.clientWidth);
+    });
+  }
+  window.addEventListener('load', updateTabFades);
+  window.addEventListener('resize', updateTabFades);
+  document.getElementById('workCategorySelect').addEventListener('change', () => requestAnimationFrame(updateTabFades));
+  if (document.fonts) document.fonts.ready.then(updateTabFades);
+  requestAnimationFrame(updateTabFades);
 })();
