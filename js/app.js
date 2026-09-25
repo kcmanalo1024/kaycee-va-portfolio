@@ -31,6 +31,19 @@ const works = [
     src: `assets/images/ojt/${file}`
   })),
 
+  // Social media carousel — original slides and supporting assets in supplied order.
+  ...[
+    ...Array.from({ length: 12 }, (_, i) => `${String(i + 1).padStart(2, '0')}_Social Media Post.png`),
+    'Phone Mock-up.png',
+    'Fonts and Color Palette.png'
+  ].map((file, i) => ({
+    title: 'SOCIAL MEDIA CAROUSEL',
+    category: 'Social Media Carousel',
+    type: 'Social Media · Carousel Design',
+    alt: i < 12 ? `Social Media Carousel — slide ${i + 1}` : `Social Media Carousel — ${file.replace('.png', '')}`,
+    src: `assets/images/social-media-carousel/${file}`
+  })),
+
   // Personal graphic-design studies — exact files from the uploaded collection
   ...['Copy of Tubaland CV - 38.png','Copy of Tubaland CV - 39.png','Copy of Tubaland CV - 40.png','Copy of Tubaland CV - 41.png','Copy of Tubaland CV - 42.png','Copy of Tubaland CV - 43.png'].map((file, i) => ({
     title: `Personal Design Study ${String(i + 1).padStart(2, '0')}`,
@@ -60,6 +73,7 @@ function renderFilters() {
 let workCategory = categories[0];
 let workIndex = 0;
 const workDescriptions = {
+  'Social Media Carousel': 'A collection of social media carousel concepts designed to communicate ideas clearly through structured layouts, visual hierarchy, and engaging content.',
   'Brand Concept': 'Timplado is a fictional coffee-shop brand I created as a personal showcase project. These social media designs explore how a consistent visual style can introduce a brand and bring its content ideas to life.',
   'Internship Work': 'A collection of corporate graphics created during my internship, including hiring templates and workplace materials. These pieces show my approach to organizing information in clear, professional layouts.',
   'Personal Work': 'Independent design studies created to explore visual ideas and develop my graphic design skills. This collection gives me room to experiment with composition, typography, and color beyond a client brief.'
@@ -69,11 +83,13 @@ function renderWorks(filter = workCategory) {
   const visible = works.filter(item => item.category === workCategory);
   const item = visible[workIndex];
   document.getElementById('categoryNote').textContent = {
+    'Social Media Carousel': 'Social Media · Carousel Design',
     'Brand Concept': 'Self-initiated social media design · Fictional brand',
     'Internship Work': 'Corporate graphics · Internship projects',
     'Personal Work': 'Graphic design · Independent studies'
   }[workCategory];
   document.getElementById('collectionTitle').textContent = {
+    'Social Media Carousel': 'SOCIAL MEDIA CAROUSEL',
     'Brand Concept': 'Timplado · A coffee-shop concept',
     'Internship Work': 'Design in a professional setting',
     'Personal Work': 'Room to explore'
@@ -82,8 +98,8 @@ function renderWorks(filter = workCategory) {
   workGrid.dataset.category = workCategory;
   workGrid.innerHTML = `
     <article class="cert-slide work-slide" role="group" aria-roledescription="slide" aria-label="${workIndex + 1} of ${visible.length}: ${item.title}">
-      <button class="work-preview" type="button" aria-label="Enlarge ${item.title}">
-        <img src="${item.src}" alt="${item.title}" />
+      <button class="work-preview" type="button" aria-label="Enlarge ${item.alt || item.title}">
+        <img src="${item.src}" alt="${item.alt || item.title}" />
         <span>View design ↗</span>
       </button>
       <div class="cert-copy">
@@ -94,7 +110,7 @@ function renderWorks(filter = workCategory) {
       </div>
     </article>`;
   document.getElementById('workCounter').textContent = `${String(workIndex + 1).padStart(2, '0')} / ${String(visible.length).padStart(2, '0')}`;
-  workGrid.querySelector('.work-preview').addEventListener('click', () => openLightbox(item.src, item.title));
+  workGrid.querySelector('.work-preview').addEventListener('click', () => openLightbox(item.src, item.alt || item.title));
 }
 function changeWork(step) {
   const count = works.filter(item => item.category === workCategory).length;
