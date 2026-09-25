@@ -10,6 +10,7 @@
     ['09', 'Landscape Enhancement', 'Exposure • Highlights • Shadows • Natural Color Enhancement', 5472, 3072],
     ['10', 'Cinematic Sunset Grade', 'Color Grading • Highlight Control • Atmospheric Contrast', 6961, 4640]
   ];
+  document.getElementById('photoPieceCount').textContent = `${photos.length} pieces`;
   const tabs = document.getElementById('photoTabs');
   const panel = document.getElementById('photoPanel');
   const frame = document.getElementById('photoComparison');

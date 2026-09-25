@@ -540,3 +540,10 @@ header nav > .brand-link { display:inline-flex; align-items:center; flex-shrink:
   #work .work-tabs #filters .filter-btn, #certTabs .filter-btn, #photoTabs button { min-height:46px; padding:0 18px!important; }
 }
 @media(prefers-reduced-motion:reduce) { #work .work-tabs #filters .filter-btn::after, #certTabs .filter-btn::after, #photoTabs button::after { transition:none; } }
+
+#photoCollectionIntro { flex-direction:column; align-items:flex-end; gap:10px; margin:0; text-align:right; min-width:0; }
+#photoCollectionIntro[hidden] { display:none; }
+#photoCollectionIntro h3 { font:clamp(20px,2.2vw,28px)/1.25 Georgia,serif; letter-spacing:-.025em; }
+#photoCollectionIntro .category-note { margin-top:6px; min-height:0; font-size:13px; line-height:1.8; }
+#photoCollectionIntro .collection-count { margin:0; }
+@media(max-width:700px) { #photoCollectionIntro { align-self:flex-end; } }

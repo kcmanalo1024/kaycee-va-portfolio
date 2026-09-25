@@ -362,6 +362,7 @@ document.getElementById('workCategorySelect').addEventListener('change', event =
   const photo = event.target.value === 'photo';
   document.getElementById('featuredWork').hidden = photo;
   document.getElementById('workCollectionIntro').hidden = photo;
+  document.getElementById('photoCollectionIntro').hidden = !photo;
   document.getElementById('photoWork').hidden = !photo;
 });
 
