@@ -29,6 +29,7 @@
   }
   function showPhoto(index) {
     current = index;
+    document.getElementById('photoCounter').textContent = `${String(index + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
     const [number, title, description, width, height] = photos[index];
     const token = ++generation;
     frame.classList.add('is-changing');
@@ -64,5 +65,7 @@
   });
   beforeButton.addEventListener('click', () => setVersion(false));
   afterButton.addEventListener('click', () => setVersion(true));
+  document.getElementById('photoPrev').addEventListener('click', () => showPhoto((current - 1 + photos.length) % photos.length));
+  document.getElementById('photoNext').addEventListener('click', () => showPhoto((current + 1) % photos.length));
   showPhoto(0);
 })();
