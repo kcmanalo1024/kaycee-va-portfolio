@@ -527,3 +527,33 @@ backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
 });
 updateBackToTop();
+
+// Accessible category popup, sharing the existing category-change behavior.
+(() => {
+  const trigger = document.getElementById('categoryTrigger');
+  const list = document.getElementById('categoryOptions');
+  const select = document.getElementById('workCategorySelect');
+  const options = [...list.querySelectorAll('[role="option"]')];
+  function close(restore = false) { list.hidden = true; trigger.setAttribute('aria-expanded', 'false'); if (restore) trigger.focus(); }
+  function open() { list.hidden = false; trigger.setAttribute('aria-expanded', 'true'); options.find(option => option.dataset.value === select.value).focus(); }
+  trigger.addEventListener('click', () => list.hidden ? open() : close(true));
+  trigger.addEventListener('keydown', event => { if (['ArrowDown','ArrowUp'].includes(event.key)) { event.preventDefault(); open(); } });
+  options.forEach(option => option.addEventListener('click', () => {
+    select.value = option.dataset.value;
+    document.getElementById('categoryValue').textContent = option.firstChild.textContent;
+    options.forEach(item => item.setAttribute('aria-selected', String(item === option)));
+    select.dispatchEvent(new Event('change', { bubbles:true }));
+    close(true);
+  }));
+  list.addEventListener('keydown', event => {
+    const index = options.indexOf(document.activeElement);
+    if (event.key === 'Escape') { event.preventDefault(); close(true); }
+    else if (['ArrowDown','ArrowUp','Home','End'].includes(event.key)) {
+      event.preventDefault();
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? options.length - 1 : (index + (event.key === 'ArrowDown' ? 1 : -1) + options.length) % options.length;
+      options[next].focus();
+    }
+  });
+  document.addEventListener('click', event => { if (!trigger.parentElement.contains(event.target)) close(); });
+  trigger.parentElement.addEventListener('focusout', event => { if (!trigger.parentElement.contains(event.relatedTarget)) close(); });
+})();

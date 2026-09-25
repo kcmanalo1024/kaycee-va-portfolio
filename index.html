@@ -159,15 +159,19 @@
 
     <section id="work" class="bg-ink text-white">
       <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-        <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+        <div class="selected-work-heading">
           <div class="max-w-3xl">
             <p class="eyebrow section-label"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Selected work</p>
             <h2 class="mt-3 font-display text-4xl leading-tight md:text-6xl">Ideas, brought to life.</h2>
-            <p class="mt-5 max-w-2xl leading-8 text-white/60">A selection of personal projects and internship work, shaped by curiosity and a love for thoughtful design.</p>
+            
           </div>
-          
+<p class="mt-5 max-w-2xl leading-8 text-white/60">A selection of personal projects and internship work, shaped by curiosity and a love for thoughtful design.</p>
         </div>
-        <div class="work-heading-row"><div class="work-category"><label for="workCategorySelect">Work category</label><span class="category-select-wrap"><select id="workCategorySelect"><option value="featured">Featured Work</option><option value="photo">Photo editing</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></span></div><div class="collection-intro" id="workCollectionIntro"><div><h3 id="collectionTitle"></h3><p id="categoryNote" class="category-note"></p></div><p id="collectionCount" class="collection-count" aria-live="polite"></p></div></div>
+        <div class="work-heading-row"><div class="work-category"><span id="workCategoryLabel">Work category</span><div class="category-select-wrap">
+<select id="workCategorySelect" hidden aria-hidden="true" tabindex="-1"><option value="featured">Featured Work</option><option value="photo">Photo editing</option></select>
+<button id="categoryTrigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="categoryOptions" aria-labelledby="workCategoryLabel categoryValue"><span id="categoryValue">Featured Work</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+<div id="categoryOptions" role="listbox" aria-labelledby="workCategoryLabel" hidden><button type="button" role="option" aria-selected="true" data-value="featured" tabindex="-1">Featured Work<span aria-hidden="true">✓</span></button><button type="button" role="option" aria-selected="false" data-value="photo" tabindex="-1">Photo editing<span aria-hidden="true">✓</span></button></div>
+</div></div><div class="collection-intro" id="workCollectionIntro"><div><h3 id="collectionTitle"></h3><p id="categoryNote" class="category-note"></p></div><p id="collectionCount" class="collection-count" aria-live="polite"></p></div></div>
         <div id="photoWork" hidden>
           <div class="collection-intro"><h3>PHOTO EDITING</h3></div>
           <div class="work-window">
