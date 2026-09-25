@@ -547,3 +547,22 @@ header nav > .brand-link { display:inline-flex; align-items:center; flex-shrink:
 #photoCollectionIntro .category-note { margin-top:6px; min-height:0; font-size:13px; line-height:1.8; }
 #photoCollectionIntro .collection-count { margin:0; }
 @media(max-width:700px) { #photoCollectionIntro { align-self:flex-end; } }
+
+/* Rounded, recessed browser tabs matching the supplied silhouette. */
+.work-window > .work-tabs { min-height:60px; padding:0 16px 9px; background:linear-gradient(180deg,#222 0%,#191919 100%); }
+.work-tabs .window-dots { padding:22px 26px 0 5px; letter-spacing:3px; }
+#work .work-tabs #filters, #certTabs, #photoTabs { padding:0 12px; gap:10px; }
+#work .work-tabs #filters .filter-btn, #certTabs .filter-btn, #photoTabs button { min-height:49px; padding:0 22px!important; }
+#work .work-tabs #filters .filter-btn::after, #certTabs .filter-btn::after, #photoTabs button::after {
+  inset:0 -10px; border-radius:0; transform:none;
+  clip-path:polygon(0 0,100% 0,97% 1%,94% 5%,92% 12%,90% 24%,88% 44%,86% 66%,84% 82%,81% 93%,77% 100%,16% 100%,12% 96%,9% 87%,7% 70%,5% 44%,3% 20%,1% 6%);
+}
+#work .work-tabs #filters .filter-btn[aria-selected="true"]::after,
+#certTabs .filter-btn[aria-selected="true"]::after,
+#photoTabs button[aria-selected="true"]::after { background:linear-gradient(180deg,#101010,#080808); }
+#work .work-tabs #filters .filter-btn::before, #certTabs .filter-btn::before, #photoTabs button::before { width:9px; height:9px; flex-basis:9px; border-radius:2px; }
+@media(max-width:767px) {
+  .work-window > .work-tabs { min-height:56px; padding:0 8px 7px; }
+  .work-tabs .window-dots { padding:20px 18px 0 3px; }
+  #work .work-tabs #filters .filter-btn, #certTabs .filter-btn, #photoTabs button { min-height:47px; padding:0 20px!important; }
+}
