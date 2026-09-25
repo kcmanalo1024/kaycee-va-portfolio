@@ -362,7 +362,7 @@ document.getElementById('workCategorySelect').addEventListener('change', event =
   const photo = event.target.value === 'photo';
   document.getElementById('featuredWork').hidden = photo;
   document.getElementById('workCollectionIntro').hidden = photo;
-  document.getElementById('photoEmpty').hidden = !photo;
+  document.getElementById('photoWork').hidden = !photo;
 });
 
 const certGrid = document.getElementById('certGrid');

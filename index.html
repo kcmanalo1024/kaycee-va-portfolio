@@ -168,7 +168,19 @@
           
         </div>
         <div class="work-category"><label for="workCategorySelect">Work category</label><select id="workCategorySelect"><option value="featured">Featured Work</option><option value="photo">Photo editing</option></select></div>
-        <p id="photoEmpty" class="photo-empty" hidden>Photo editing samples will be added here.</p>
+        <div id="photoWork" hidden>
+          <div class="collection-intro"><h3>PHOTO EDITING</h3></div>
+          <div class="work-window">
+            <div class="work-tabs"><span class="window-dots" aria-hidden="true">● ● ●</span><div id="photoTabs" role="tablist" aria-label="Photo editing projects"></div></div>
+            <div id="photoPanel" class="photo-panel" role="tabpanel" tabindex="0">
+              <div class="photo-comparison" id="photoComparison"><img id="photoBefore" alt="" /><img id="photoAfter" alt="" aria-hidden="true" /></div>
+              <div class="photo-copy"><p class="eyebrow">PHOTO EDITING</p><h3 id="photoTitle"></h3><p id="photoDescription"></p>
+                <div class="photo-toggle" role="group" aria-label="Photo version"><button id="showBefore" type="button" aria-pressed="true">BEFORE</button><button id="showAfter" type="button" aria-pressed="false">AFTER</button></div>
+                <p id="photoStatus" class="photo-status" role="status">Showing BEFORE</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="collection-intro" id="workCollectionIntro"><div><h3 id="collectionTitle"></h3><p id="categoryNote" class="category-note"></p></div><p id="collectionCount" class="collection-count" aria-live="polite"></p></div>
         <div class="work-window" id="featuredWork">
           <div class="work-tabs"><span class="window-dots" aria-hidden="true">● ● ●</span><div id="filters" role="tablist" aria-label="Work collections"></div></div>
@@ -264,6 +276,7 @@
 
   <button id="backToTop" type="button" aria-label="Back to top" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 11 6-6 6 6M12 5v14"/></svg></button>
   <script src="js/app.js"></script>
+  <script src="js/photo-editing.js"></script>
 </body>
 </html>
 
