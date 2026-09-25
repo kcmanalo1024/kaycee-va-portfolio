@@ -471,3 +471,18 @@ header nav > .brand-link { display:inline-flex; align-items:center; flex-shrink:
 .photo-controls { margin:0; padding:0 28px 28px; }
 .photo-controls .cert-counter { color:var(--text); }
 @media(max-width:767px) { .photo-controls { padding:0 18px 18px; } }
+
+/* Align collection metadata and category selection directly above the tabs. */
+.work-heading-row { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin:32px 0 18px; }
+.work-heading-row .work-category { margin:0; gap:12px; align-items:center; }
+#workCollectionIntro { flex-direction:column; align-items:flex-end; gap:10px; margin:0; text-align:right; min-width:0; }
+#workCollectionIntro #collectionTitle { font-size:clamp(20px,2.2vw,28px); }
+#workCollectionIntro #categoryNote { margin-top:6px; font-size:13px; }
+#workCollectionIntro .collection-count { margin:0; }
+.category-select-wrap { position:relative; display:inline-flex; max-width:100%; }
+.work-category select { appearance:none; min-width:240px; padding:15px 48px 15px 18px; border:1px solid var(--line); border-radius:10px; background:linear-gradient(180deg,var(--surface),var(--soft)); color:var(--text); font-weight:500; box-shadow:inset 0 1px 0 #ffffff18,0 2px 0 #00000012,0 4px 10px #0000000a; cursor:pointer; transition:border-color .2s,box-shadow .2s; }
+.category-select-wrap > svg { position:absolute; right:16px; top:50%; transform:translateY(-50%); width:18px; height:18px; pointer-events:none; color:var(--muted); }
+.work-category select:hover { border-color:var(--accent); }
+.work-category select:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.work-category select option { background:var(--surface); color:var(--text); }
+@media(max-width:700px) { .work-heading-row { flex-direction:column-reverse; align-items:stretch; gap:20px; } .work-heading-row .work-category { justify-content:space-between; } .category-select-wrap { flex:1; max-width:300px; } .work-category select { width:100%; min-width:0; } #workCollectionIntro { align-self:flex-end; } }
