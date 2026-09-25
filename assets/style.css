@@ -507,3 +507,36 @@ header nav > .brand-link { display:inline-flex; align-items:center; flex-shrink:
 #categoryOptions button:hover { transform:none; background:var(--soft); }
 #categoryOptions button[aria-selected="true"]:hover { background:#f28c54; }
 @media(max-width:700px) { .selected-work-heading { grid-template-columns:1fr; gap:20px; } .work-heading-row { margin-top:28px; } .category-select-wrap { width:240px; max-width:100%; } }
+
+/* Browser-style tab strips shared by featured work, photos, and credentials. */
+.work-window > .work-tabs { min-height:62px; padding:0 18px 10px; align-items:flex-start; background:linear-gradient(180deg,#222,#181818); }
+.work-tabs .window-dots { display:block; padding:22px 24px 0 4px; font-size:10px; line-height:16px; letter-spacing:3px; }
+#work .work-tabs #filters, #certTabs, #photoTabs { display:flex; flex-wrap:nowrap; gap:2px; padding:0 8px; margin:0; border:0; overflow-x:auto; scrollbar-width:thin; scrollbar-color:#444 transparent; }
+#work .work-tabs #filters .filter-btn, #certTabs .filter-btn, #photoTabs button {
+  position:relative; isolation:isolate; display:inline-flex; align-items:center; justify-content:flex-start; gap:10px;
+  flex:0 0 auto; min-height:50px; padding:0 24px!important; margin:0;
+  background:transparent!important; border:0!important; border-radius:0!important;
+  color:var(--muted)!important; font:500 12px/1.4 Inter,Arial,sans-serif; letter-spacing:0; text-transform:none; white-space:nowrap;
+  box-shadow:none!important; transform:none!important;
+}
+#work .work-tabs #filters .filter-btn::after, #certTabs .filter-btn::after, #photoTabs button::after {
+  content:''; position:absolute; inset:0 -2px; z-index:-1; border-radius:0 13px 12px 13px;
+  background:transparent; transform:skewX(-16deg); transition:background-color .18s ease;
+}
+#work .work-tabs #filters .filter-btn[aria-selected="true"]::after,
+#certTabs .filter-btn[aria-selected="true"]::after,
+#photoTabs button[aria-selected="true"]::after { background:#101010; }
+#work .work-tabs #filters .filter-btn[aria-selected="true"], #certTabs .filter-btn[aria-selected="true"], #photoTabs button[aria-selected="true"] { color:var(--text)!important; }
+#work .work-tabs #filters .filter-btn::before, #certTabs .filter-btn::before, #photoTabs button::before {
+  content:''; display:block; width:8px; height:8px; flex:0 0 8px; border-radius:2px; background:#8d8d88;
+}
+#work .work-tabs #filters .filter-btn[aria-selected="true"]::before, #certTabs .filter-btn[aria-selected="true"]::before, #photoTabs button[aria-selected="true"]::before { background:#f28c54; }
+#work .work-tabs #filters .filter-btn > .ui-icon { display:none; }
+#work .work-tabs #filters .filter-btn:hover, #certTabs .filter-btn:hover, #photoTabs button:hover { color:var(--text)!important; }
+#work .work-tabs #filters .filter-btn:focus-visible, #certTabs .filter-btn:focus-visible, #photoTabs button:focus-visible { outline:2px solid #f28c54; outline-offset:-5px; }
+@media(max-width:767px) {
+  .work-window > .work-tabs { padding:0 8px 8px; min-height:56px; }
+  .work-tabs .window-dots { padding:19px 12px 0 2px; font-size:8px; letter-spacing:2px; }
+  #work .work-tabs #filters .filter-btn, #certTabs .filter-btn, #photoTabs button { min-height:46px; padding:0 18px!important; }
+}
+@media(prefers-reduced-motion:reduce) { #work .work-tabs #filters .filter-btn::after, #certTabs .filter-btn::after, #photoTabs button::after { transition:none; } }
