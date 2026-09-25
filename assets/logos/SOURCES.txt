@@ -1,0 +1,3 @@
+Brand-logo assets are locally stored SVGs obtained from Iconify (https://iconify.design/).
+Sources: Vector Logos (logos), Skill Icons (skill-icons), VS Code Icons (vscode-icons), The SVG (thesvg-color).
+Brand marks belong to their respective owners and identify the tools listed in the portfolio.

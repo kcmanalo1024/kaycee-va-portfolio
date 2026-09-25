@@ -310,3 +310,118 @@ main > section + section::before {
 }
 /* Full-bleed separators must not introduce horizontal scrolling. */
 main { overflow-x:clip; }
+
+/* Browser-style work collections, with the supplied reference's quiet framing. */
+.work-window { --accent:#f28c54; --surface:#141414; --soft:#1d1d1d; --line:#303030; --text:#f1efea; --muted:#aaa7a5; color:var(--text); background:#101010; border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+.work-tabs { display:flex; align-items:center; background:linear-gradient(#242424,#191919); padding:0 14px; border-bottom:1px solid var(--line); }
+.window-dots { color:#93918e; font-size:10px; letter-spacing:3px; padding-right:22px; white-space:nowrap; }
+#work .work-tabs #filters { flex:1; min-width:0; margin:0; border:0; flex-wrap:nowrap; gap:0; overflow-x:auto; padding-top:7px; }
+#work .work-tabs .filter-btn { display:flex; align-items:center; gap:8px; flex-shrink:0; padding:16px 20px!important; border:0!important; border-radius:12px 12px 0 0!important; font-size:12px; font-weight:500; letter-spacing:0; text-transform:none; }
+#work .work-tabs .filter-btn.active { background:#101010!important; color:var(--text)!important; }
+#work .work-tabs .filter-btn span { color:var(--muted); font-size:20px; transform:none; }
+#work .work-tabs .filter-btn.active span { color:var(--accent); }
+.work-toolbar { display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid var(--line); }
+.work-toolbar button { width:30px; height:30px; flex-shrink:0; display:grid; place-items:center; border:1px solid var(--line); border-radius:6px; background:linear-gradient(#292929,#141414); }
+.work-toolbar svg { width:16px; height:16px; }
+.work-location { flex:1; min-width:0; margin-left:8px; padding:9px 13px; border:1px solid var(--line); border-radius:6px; color:var(--accent); font-size:12px; }
+.work-location > span:first-child { margin-right:10px; }
+#workCarousel { padding:28px; }
+#workGrid .work-slide { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,5vw,64px); padding:0; border:0; border-radius:0; background:transparent; align-items:center; }
+#workGrid .work-preview { padding:18px; background:linear-gradient(140deg,#1b1b1b,#141414); border-radius:10px; }
+#workGrid .work-preview img { height:420px; max-height:55vh; }
+#workGrid .work-preview span { font-size:12px; }
+#workGrid .cert-copy { padding:12px 0; }
+#workGrid .cert-copy h3 { font-size:clamp(1.8rem,3vw,2.6rem); margin:18px 0; }
+#workGrid .cert-description { font-size:14px; line-height:1.9; }
+.work-detail { border-top:1px solid var(--line); margin-top:26px; padding-top:22px; }
+.work-detail p { font:20px/1.4 Georgia,serif; }
+.work-detail .cert-counter { display:block; margin:18px 0 0; color:var(--accent); font-size:11px; letter-spacing:.1em; }
+.preview-dialog { width:min(100%,1040px); max-height:94dvh; display:flex; flex-direction:column; overflow:hidden; color:#f1efea; background:#0c0c0c; border:1px solid #303030; border-radius:20px; box-shadow:0 8px 28px #0003; }
+.preview-header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 24px; border-bottom:1px solid #303030; background:linear-gradient(#1b1b1b,#101010); }
+.preview-header p { color:#f28c54; text-transform:uppercase; letter-spacing:.16em; font-size:10px; margin-bottom:6px; }
+.preview-header h2 { font:clamp(18px,2.5vw,26px)/1.25 Georgia,serif; }
+#lightboxClose { flex-shrink:0; width:36px; height:36px; border:1px solid #303030; border-radius:10px; color:#eee; font-size:24px; }
+.preview-image { display:flex; justify-content:center; align-items:center; min-height:0; padding:18px; }
+#lightboxImage { display:block; width:auto; height:auto; max-width:100%; max-height:calc(94dvh - 180px); object-fit:contain; border-radius:0; }
+.preview-footer { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 24px; border-top:1px solid #303030; background:#111; color:#aaa; font-size:11px; }
+#lightboxOriginal { padding:9px 12px; border:1px solid #303030; border-radius:7px; background:linear-gradient(#242424,#151515); color:#eee; white-space:nowrap; }
+@media(max-width:767px) { .window-dots { display:none; } .work-tabs { padding:0 6px; } #work .work-tabs .filter-btn { padding:14px 12px!important; } #workCarousel { padding:18px; } #workGrid .work-slide { grid-template-columns:1fr; gap:18px; } #workGrid .work-preview img { height:340px; } .preview-header { padding:14px; } .preview-footer { padding:12px; flex-wrap:wrap; } .preview-image { padding:12px; } #lightboxImage { max-height:calc(94dvh - 215px); } }
+@media(prefers-reduced-motion:reduce) { #workGrid .work-slide { animation:none; } }
+
+.work-controls { margin-top:24px; }
+.work-controls .cert-counter { color:var(--text); }
+
+/* Flat editorial controls and a consistent, lightweight line-icon system. */
+:root, :root[data-theme="dark"] { --shadow:0 3px 12px #0000000a; }
+button, .btn-primary, .btn-ghost, #contact a, #lightboxOriginal {
+  box-shadow:none;
+  transition:transform .18s ease,background-color .18s ease,border-color .18s ease;
+}
+#menuBtn, #sidebarClose, #lightboxClose, #backToTop, .cert-controls button { background-image:none; box-shadow:0 2px 5px #0000000c; }
+#lightboxOriginal { background:#181818; }
+#sidebarClose, #lightboxClose { display:grid; place-items:center; }
+.theme-toggle, #lightboxOriginal, .work-preview > span, .cert-preview > span { display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+.ui-icon { display:inline-block; width:18px; height:18px; flex-shrink:0; vertical-align:middle; }
+button svg, .section-icon, .section-label > svg, .service-icon svg, .skill-category-icon svg, .tool-symbol svg { stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; filter:none; }
+#menuBtn svg, #backToTop svg, .cert-controls svg { width:20px; height:20px; }
+#skills .skill-category-icon, #skills .tool-icon, #services .service-icon { box-shadow:none; background:var(--soft); border:1px solid var(--line); }
+#skills .skill-category-icon svg, #skills .tool-symbol svg, #services .service-icon svg { width:20px; height:20px; }
+#skills .tool-brand { padding:6px; background:#fafafa; border-color:var(--line); }
+#skills .tool-brand img { display:block; width:100%; height:100%; object-fit:contain; filter:none; }
+#work .work-tabs .ui-icon { width:14px; height:14px; color:var(--muted); }
+#work .work-tabs .active .ui-icon { color:var(--accent); }
+.work-location { display:flex; align-items:center; gap:8px; }
+.work-location .ui-icon { width:16px; height:16px; }
+.splash-emblem { background:var(--surface); box-shadow:none; }
+#splash::before { box-shadow:none; }
+.show-intro .splash-emblem { animation:editorial-fade .8s ease both; }
+@keyframes editorial-fade { from { opacity:0; } to { opacity:1; } }
+@media(hover:hover) {
+  button:hover, .btn-primary:hover, .btn-ghost:hover, #contact a:hover, #lightboxOriginal:hover, #backToTop:hover, .cert-controls button:hover { transform:translateY(-1px); box-shadow:0 3px 8px #00000010; }
+  #filters .filter-btn:hover, #skills .skill-list li:hover { transform:none; box-shadow:none; }
+}
+button:active, .btn-primary:active, .btn-ghost:active, #contact a:active, #lightboxOriginal:active { transform:none!important; box-shadow:none; }
+@media(prefers-reduced-motion:reduce) { button, .btn-primary, .btn-ghost, #contact a, #lightboxOriginal { transition:none; } .show-intro .splash-emblem { animation:none; } }
+
+/* Supplied signature logo: depth lives in the vector artwork itself. */
+header nav > .brand-link { display:inline-flex; align-items:center; flex-shrink:0; line-height:1; }
+.brand-link img { display:block; width:104px; height:56px; object-fit:contain; }
+.splash-emblem { width:220px; height:142px; background:transparent; border:0; border-radius:0; box-shadow:none; }
+.splash-emblem::after { content:none; }
+.splash-brand { display:block; width:100%; height:100%; object-fit:contain; }
+@media(max-height:650px) { .splash-emblem { width:170px; height:100px; } }
+
+/* Keep skill logos inside fixed, flat icon tiles, regardless of SVG aspect ratio. */
+#skills .tool-icon {
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  min-width:34px;
+  min-height:34px;
+  flex:0 0 34px;
+  padding:5px;
+  overflow:hidden;
+  position:relative;
+  transform:none;
+  box-shadow:none;
+}
+#skills .tool-brand { background:#fff; }
+#skills .tool-brand img {
+  display:block;
+  position:static;
+  width:22px;
+  height:22px;
+  max-width:100%;
+  max-height:100%;
+  margin:0;
+  padding:0;
+  object-fit:contain;
+  object-position:center;
+  transform:none;
+  filter:none;
+  box-shadow:none;
+}
+#skills .tool-icon > svg { flex-shrink:0; max-width:100%; max-height:100%; transform:none; filter:none; }

@@ -62,11 +62,12 @@ const certificates = [
 
 const workGrid = document.getElementById('workGrid');
 const filters = document.getElementById('filters');
-const categories = [...new Set(works.map(item => item.category))];
+const categories = ['Social Media Carousel', 'Brand Concept', 'Internship Work', 'Personal Work'];
+const categoryLabels = ['Social Media Carousel', 'Timplado Concept', 'Internship Design', 'Personal Posters'];
 
 function renderFilters() {
   filters.innerHTML = categories.map((category, index) => `
-    <button type="button" class="filter-btn ${index === 0 ? 'active' : ''}" aria-pressed="${index === 0}" data-filter="${category}">${category}</button>
+    <button type="button" id="workTab${index}" role="tab" class="filter-btn ${index === 0 ? 'active' : ''}" aria-selected="${index === 0}" aria-controls="workCarousel" tabindex="${index === 0 ? 0 : -1}" data-filter="${category}"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7l-4-4ZM14 3v5h4M9 12h6M9 16h6"/></svg>${categoryLabels[index]}</button>
   `).join('');
 }
 
@@ -82,6 +83,9 @@ function renderWorks(filter = workCategory) {
   if (filter !== workCategory) { workCategory = filter; workIndex = 0; }
   const visible = works.filter(item => item.category === workCategory);
   const item = visible[workIndex];
+  const categoryIndex = categories.indexOf(workCategory);
+  document.getElementById('workCarousel').setAttribute('aria-labelledby', `workTab${categoryIndex}`);
+  document.getElementById('workLocation').textContent = categoryLabels[categoryIndex];
   document.getElementById('categoryNote').textContent = {
     'Social Media Carousel': 'Social Media · Carousel Design',
     'Brand Concept': 'Self-initiated social media design · Fictional brand',
@@ -100,13 +104,14 @@ function renderWorks(filter = workCategory) {
     <article class="cert-slide work-slide" role="group" aria-roledescription="slide" aria-label="${workIndex + 1} of ${visible.length}: ${item.title}">
       <button class="work-preview" type="button" aria-label="Enlarge ${item.alt || item.title}">
         <img src="${item.src}" alt="${item.alt || item.title}" />
-        <span>View design ↗</span>
+        <span>View design <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
       </button>
       <div class="cert-copy">
         <p class="eyebrow">${item.type}</p>
         <h3>${item.title}</h3>
         <p class="cert-description">${item.description || workDescriptions[workCategory]}</p>
         ${item.confidential ? '<p class="confidentiality-note"><strong>Confidentiality note</strong>Some information in this hiring template has been blocked out to protect the company’s confidential details.</p>' : ''}
+        <div class="work-detail"><p>${item.alt || item.title}</p></div>
       </div>
     </article>`;
   document.getElementById('workCounter').textContent = `${String(workIndex + 1).padStart(2, '0')} / ${String(visible.length).padStart(2, '0')}`;
@@ -133,11 +138,22 @@ filters.addEventListener('click', (event) => {
   if (!button) return;
   document.querySelectorAll('[data-filter]').forEach(btn => {
     btn.classList.remove('active');
-    btn.setAttribute('aria-pressed', 'false');
+    btn.setAttribute('aria-selected', 'false');
+    btn.tabIndex = -1;
   });
   button.classList.add('active');
-  button.setAttribute('aria-pressed', 'true');
+  button.setAttribute('aria-selected', 'true');
+  button.tabIndex = 0;
   renderWorks(button.dataset.filter);
+});
+filters.addEventListener('keydown', event => {
+  const tabs = [...filters.querySelectorAll('[role="tab"]')];
+  const index = tabs.indexOf(event.target);
+  if (index < 0 || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+  event.preventDefault();
+  const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+  tabs[next].click();
+  tabs[next].focus();
 });
 
 const certGrid = document.getElementById('certGrid');
@@ -154,7 +170,7 @@ function renderCertificate() {
     <article class="cert-slide" role="group" aria-roledescription="slide" aria-label="${certificateIndex + 1} of ${certificates.length}: ${cert.title}">
       <button class="cert-preview" type="button" aria-label="Enlarge ${cert.title}">
         <img src="${cert.src}" alt="${cert.title}" />
-        <span>View certificate ↗</span>
+        <span>View certificate <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
       </button>
       <div class="cert-copy">
         <p class="eyebrow">${cert.note}</p>
@@ -190,6 +206,8 @@ function openLightbox(src, title) {
   previousFocus = document.activeElement;
   lightboxImage.src = src;
   lightboxImage.alt = title;
+  document.getElementById('lightboxTitle').textContent = title;
+  document.getElementById('lightboxOriginal').href = src;
   lightbox.classList.remove('hidden');
   lightbox.classList.add('flex');
   document.body.style.overflow = 'hidden';
@@ -243,7 +261,7 @@ renderWorks();
 const themeToggle = document.getElementById('themeToggle');
 function updateThemeLabel() {
   const dark = document.documentElement.dataset.theme === 'dark';
-  themeToggle.textContent = dark ? '☀ Light' : '☾ Dark';
+  themeToggle.innerHTML = dark ? '<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span>Light</span>' : '<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 15.5A9 9 0 0 1 8.5 4 9 9 0 1 0 20 15.5Z"/></svg><span>Dark</span>';
   themeToggle.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} theme`);
 }
 themeToggle.addEventListener('click', () => {
@@ -255,7 +273,12 @@ themeToggle.addEventListener('click', () => {
 updateThemeLabel();
 try { sessionStorage.setItem('kaycee-intro-seen', '1'); } catch (_) {}
 setTimeout(() => { document.documentElement.classList.remove('show-intro'); document.getElementById('splash').remove(); }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 4600);
-lightbox.addEventListener('keydown', e => { if (e.key === 'Tab') { e.preventDefault(); lightboxClose.focus(); } });
+lightbox.addEventListener('keydown', e => {
+  if (e.key !== 'Tab') return;
+  const original = document.getElementById('lightboxOriginal');
+  if (e.shiftKey && document.activeElement === lightboxClose) { e.preventDefault(); original.focus(); }
+  else if (!e.shiftKey && document.activeElement === original) { e.preventDefault(); lightboxClose.focus(); }
+});
 
 
 
