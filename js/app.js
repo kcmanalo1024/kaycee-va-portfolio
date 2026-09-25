@@ -259,8 +259,8 @@ const certificates = [
 
 const workGrid = document.getElementById('workGrid');
 const filters = document.getElementById('filters');
-const categories = ['Social Media Carousel', 'Brand Concept', 'Internship Work', 'Personal Work', 'LUMA'];
-const categoryLabels = ['Social Media Carousel', 'Timplado Concept', 'Internship Design', 'Personal Posters', 'LUMA'];
+const categories = ['Social Media Carousel', 'LUMA', 'Brand Concept', 'Internship Work', 'Personal Work'];
+const categoryLabels = ['Social Media Carousel', 'LUMA', 'Timplado Concept', 'Internship Design', 'Personal Posters'];
 
 function renderFilters() {
   filters.innerHTML = categories.map((category, index) => `
@@ -358,6 +358,13 @@ filters.addEventListener('keydown', event => {
   tabs[next].focus();
 });
 
+document.getElementById('workCategorySelect').addEventListener('change', event => {
+  const photo = event.target.value === 'photo';
+  document.getElementById('featuredWork').hidden = photo;
+  document.getElementById('workCollectionIntro').hidden = photo;
+  document.getElementById('photoEmpty').hidden = !photo;
+});
+
 const certGrid = document.getElementById('certGrid');
 const certificateDescriptions = [
   'A certificate of completion awarded by Aspiring VA with Zeah on September 13, 2026, for the 30-Day AI-Powered VA Bootcamp. The training focused on social media management, including content creation and scheduling, content calendars, audience engagement, and performance tracking. It covered tools such as Canva, Meta Business Suite, Google Workspace, ChatGPT, Trello, ClickUp, and Slack to support a consistent, professional online presence.',
@@ -367,7 +374,29 @@ const certificateDescriptions = [
   'A certificate from the LPU Batangas Java Object-Oriented Programming Certification Exam through CodeChum. It documents my assessment in Java programming and forms part of my Information Technology background.'
 ];
 let certificateIndex = 0;
+const certTabs = document.getElementById('certTabs');
+const certificateTabLabels = ['Social Media Management', 'Visual Graphic Design', 'Digital Skills: Mobile', 'User Experience', 'Java Certification'];
+certTabs.innerHTML = certificates.map((cert, i) => `<button type="button" class="filter-btn" role="tab" id="certTab${i}" aria-controls="certGrid" data-cert="${i}">${certificateTabLabels[i]}</button>`).join('');
+certTabs.addEventListener('click', event => {
+  const button = event.target.closest('[data-cert]');
+  if (!button) return;
+  certificateIndex = Number(button.dataset.cert);
+  renderCertificate();
+});
+certTabs.addEventListener('keydown', event => {
+  if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+  event.preventDefault(); event.stopPropagation();
+  certificateIndex = event.key === 'Home' ? 0 : event.key === 'End' ? certificates.length - 1 : (certificateIndex + (event.key === 'ArrowRight' ? 1 : -1) + certificates.length) % certificates.length;
+  renderCertificate();
+  document.getElementById('certTab' + certificateIndex).focus();
+});
 function renderCertificate() {
+  certTabs.querySelectorAll('[role="tab"]').forEach((button, i) => {
+    button.classList.toggle('active', i === certificateIndex);
+    button.setAttribute('aria-selected', String(i === certificateIndex));
+    button.tabIndex = i === certificateIndex ? 0 : -1;
+  });
+  certGrid.setAttribute('aria-labelledby', 'certTab' + certificateIndex);
   const cert = certificates[certificateIndex];
   certGrid.innerHTML = `
     <article class="cert-slide" role="group" aria-roledescription="slide" aria-label="${certificateIndex + 1} of ${certificates.length}: ${cert.title}">

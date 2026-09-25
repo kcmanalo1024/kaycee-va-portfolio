@@ -167,8 +167,10 @@
           </div>
           
         </div>
-        <div class="collection-intro"><div><h3 id="collectionTitle"></h3><p id="categoryNote" class="category-note"></p></div><p id="collectionCount" class="collection-count" aria-live="polite"></p></div>
-        <div class="work-window">
+        <div class="work-category"><label for="workCategorySelect">Work category</label><select id="workCategorySelect"><option value="featured">Featured Work</option><option value="photo">Photo editing</option></select></div>
+        <p id="photoEmpty" class="photo-empty" hidden>Photo editing samples will be added here.</p>
+        <div class="collection-intro" id="workCollectionIntro"><div><h3 id="collectionTitle"></h3><p id="categoryNote" class="category-note"></p></div><p id="collectionCount" class="collection-count" aria-live="polite"></p></div>
+        <div class="work-window" id="featuredWork">
           <div class="work-tabs"><span class="window-dots" aria-hidden="true">● ● ●</span><div id="filters" role="tablist" aria-label="Work collections"></div></div>
           <div class="work-toolbar">
             
@@ -211,14 +213,17 @@
           <p class="eyebrow section-label"><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="m8 12-2 9 6-3 6 3-2-9"/></svg>Credentials</p>
           <h2 class="section-title">Training behind the work.</h2>
         </div>
-        <div class="cert-carousel" role="region" aria-roledescription="carousel" aria-label="Certificates">
-          <div id="certGrid" aria-live="polite" aria-atomic="true"></div>
+        <div class="cert-carousel work-window" role="region" aria-label="Certificates">
+          <div class="work-tabs"><span class="window-dots" aria-hidden="true">● ● ●</span><div id="certTabs" role="tablist" aria-label="Credentials"></div></div>
+          <div class="credential-content">
+          <div id="certGrid" role="tabpanel" tabindex="0" aria-live="polite" aria-atomic="true"></div>
           <div class="cert-controls">
             <button id="certPrev" type="button" aria-label="Previous certificate" aria-controls="certGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
             <button id="certNext" type="button" aria-label="Next certificate" aria-controls="certGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
             <span id="certCounter" class="cert-counter" aria-hidden="true"></span>
           </div>
         </div>
+      </div>
       </div>
     </section>
 
